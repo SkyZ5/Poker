@@ -1,3 +1,4 @@
+import javax.smartcardio.Card;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -23,6 +24,13 @@ public class Main {
             System.out.println("File was not found");
             System.exit(1);
         }
+
+
+
+
+
+
+
         for(int i = 0; i < fileArray.length; i ++){
             String input = fileArray[i];
             String[] temp = input.split("\\|");
