@@ -22,6 +22,5 @@ public class Main {
             System.out.println("File was not found");
             System.exit(1);
         }
-        System.out.println(fileData);
     }
 }
