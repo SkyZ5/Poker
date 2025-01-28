@@ -36,6 +36,7 @@ public class Main {
 
 
         for(int i = 0; i < fileArray.length; i ++){
+            CardClassifyUtility classify = new CardClassifyUtility();
             String input = fileArray[i];
             String[] temp = input.split("\\|");
             String[] cards = temp[0].split(",");
