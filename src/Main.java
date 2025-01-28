@@ -8,6 +8,7 @@ public class Main {
         File f = new File("src/input_file");
 
         String fileData = "";
+        String[] fileArray = null;
         try {
             Scanner s = new Scanner(f);
             while (s.hasNextLine()) {
@@ -16,11 +17,20 @@ public class Main {
             }
 
             // a String array where every item in the array is a line from the file
-            String[] fileArray = fileData.split("\n");
+            fileArray = fileData.split("\n");
             System.out.println(Arrays.toString(fileArray));
         } catch (FileNotFoundException fe) {
             System.out.println("File was not found");
             System.exit(1);
+        }
+        for(int i = 0; i < fileArray.length; i ++){
+            String input = fileArray[i];
+            String[] temp = input.split("\\|");
+            String[] cards = temp[0].split(",");
+            int bidValue = Integer.parseInt(temp[1]);
+            System.out.println(Arrays.toString(cards));
+
+
         }
     }
 }
