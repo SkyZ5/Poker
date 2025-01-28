@@ -17,6 +17,6 @@ public class CardClassifyUtility {
 
 
     public String classify(String[] hand) {
-
+return "";
     }
 }

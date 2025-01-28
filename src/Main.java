@@ -1,11 +1,15 @@
 import javax.smartcardio.Card;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.sql.SQLOutput;
 import java.util.Scanner;
 import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
+        TranslationUtility tu1 = new TranslationUtility();
+
+
         File f = new File("src/input_file");
 
         String fileData = "";
@@ -38,6 +42,7 @@ public class Main {
             int bidValue = Integer.parseInt(temp[1]);
             System.out.println(Arrays.toString(cards));
 
+            System.out.println(Arrays.toString(tu1.toNumbers(cards)));
 
         }
     }
