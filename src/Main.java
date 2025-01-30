@@ -30,20 +30,17 @@ public class Main {
         }
 
 
-
-
-
-
-
         for(int i = 0; i < fileArray.length; i ++){
-            CardClassifyUtility classify = new CardClassifyUtility();
             String input = fileArray[i];
             String[] temp = input.split("\\|");
-            String[] cards = temp[0].split(",");
+            String[] cardsUnconverted = temp[0].split(",");
+            int[] cardsConverted = tu1.toNumbers(cardsUnconverted);
             int bidValue = Integer.parseInt(temp[1]);
-            System.out.println(Arrays.toString(cards));
 
-            System.out.println(Arrays.toString(tu1.toNumbers(cards)));
+            CardClassifyUtility classify = new CardClassifyUtility(cardsConverted);
+            System.out.println(classify.classify());
+
+
 
         }
     }
