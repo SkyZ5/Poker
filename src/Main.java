@@ -28,19 +28,14 @@ public class Main {
             System.exit(1);
         }
 
-
+        Card[] cards = new Card[fileArray.length];
         for(int i = 0; i < fileArray.length; i ++){
             String input = fileArray[i];
             String[] temp = input.split("\\|");
-            String[] cardsUnconverted = temp[0].split(",");
-            int[] cardsConverted = tu1.toNumbers(cardsUnconverted);
+            String[] card = temp[0].split(",");
+            cards[i] = new Card(card);
             int bidValue = Integer.parseInt(temp[1]);
-
-            CardClassifyUtility classify = new CardClassifyUtility(cardsConverted);
-            System.out.println(classify.classify());
-
-
-
         }
+        System.out.println(Arrays.toString(cards));
     }
 }

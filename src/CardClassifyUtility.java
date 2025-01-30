@@ -26,7 +26,6 @@ public class CardClassifyUtility {
         for (int i = 0; i < labelAmounts.length; i ++) {
             labelsCopy.add(labelAmounts[i]);
         }
-        System.out.println(labelsCopy);
         if (labelsCopy.contains(5)) {
             return "5KIND";
         }
