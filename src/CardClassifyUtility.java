@@ -46,5 +46,8 @@ public class CardClassifyUtility {
             return "1PAIR";
         return "HIGHCARD";
     }
+    public int[] giveHand(){
+        return hand;
+    }
 
 }

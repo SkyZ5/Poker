@@ -1,4 +1,3 @@
-import javax.smartcardio.Card;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.sql.SQLOutput;
