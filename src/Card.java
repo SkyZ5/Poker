@@ -19,4 +19,7 @@ public class Card {
         return "\nHand: " + Arrays.toString(hand) + " Highest Hand: " + highestHand;
 
     }
+    public int[] getHand(){
+        return hand;
+    }
 }

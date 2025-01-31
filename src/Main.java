@@ -22,7 +22,6 @@ public class Main {
 
             // a String array where every item in the array is a line from the file
             fileArray = fileData.split("\n");
-            System.out.println(Arrays.toString(fileArray));
         } catch (FileNotFoundException fe) {
             System.out.println("File was not found");
             System.exit(1);
@@ -36,6 +35,8 @@ public class Main {
             cards[i] = new Card(card);
             int bidValue = Integer.parseInt(temp[1]);
         }
-        System.out.println(Arrays.toString(cards));
+        CompareUtility compare = new CompareUtility(cards);
+        System.out.println(compare.threeOfAKind);
+        compare.compareIndividualValue(compare.threeOfAKind);
     }
 }
