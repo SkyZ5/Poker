@@ -38,5 +38,11 @@ public class Main {
         CompareUtility compare = new CompareUtility(cards);
         System.out.println(compare.threeOfAKind);
         compare.compareIndividualValue(compare.threeOfAKind);
+
+        // part 1 answer
+        System.out.println();
+        System.out.println(compare.toString());
+
+
     }
 }

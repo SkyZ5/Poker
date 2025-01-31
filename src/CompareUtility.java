@@ -36,7 +36,7 @@ public class CompareUtility {
         }
     }
 
-    public ArrayList<Card> compareIndividualValue(ArrayList<Card> cards){
+    public void compareIndividualValue(ArrayList<Card> cards){ // change this
         ArrayList<Card> returnCards = new ArrayList<Card>();
         int[] temp = new int[cards.size()];
         for(int i = 0; i < cards.size() ; i++){
@@ -64,5 +64,15 @@ public class CompareUtility {
             }
         }
         return 0;
+    }
+    public String toString() {
+        return "Number of five of a kind hands: " + fiveOfAKind.size() + "\n" +
+                "Number of four of a kind hands: " + fourOfAKind.size() + "\n" +
+                "Number of full house hands: " + fullHouse.size() + "\n" +
+                "Number of three of a kind hands: " + threeOfAKind.size() + "\n" +
+                "Number of two pair hands: " + twoPair.size() + "\n" +
+                "Number of one pair hands: " + onePair.size() + "\n" +
+                "Number of high card hands: " + highestCard.size() + "\n" +
+                "Total Bid Value: NOT SET";
     }
 }
