@@ -36,7 +36,7 @@ public class CompareUtility {
         }
     }
 
-    public void compareIndividualValue(ArrayList<Card> cards){ // change this
+    public ArrayList<Card> compareIndividualValue(ArrayList<Card> cards){ // change this
         ArrayList<Card> returnCards = new ArrayList<Card>();
         int[] temp = new int[cards.size()];
         for(int i = 0; i < cards.size() ; i++){
@@ -46,25 +46,20 @@ public class CompareUtility {
             }
             temp[i] = sum;
         }
-        System.out.println(Arrays.toString(temp));
         int[] tempClone = temp.clone();
         Arrays.sort(tempClone);
-        System.out.println(Arrays.toString(tempClone));
-
-    }
-
-
-    private int greater(int[] hand1, int[] hand2){
-        for(int i = 0; i < 5; i ++){
-            if (hand1[i] > hand2[i]){
-                return 1;
-            }
-            else if(hand1[i] < hand2[i]){
-                return 2;
-            }
+        ArrayList<Integer> tempCloneTwo = new ArrayList<Integer>();
+        for(int i = 0; i < temp.length; i ++){
+            tempCloneTwo.add(temp[i]);
         }
-        return 0;
+        for(int i = cards.size() - 1; i >= 0; i --){
+            returnCards.add(cards.get(tempCloneTwo.indexOf(tempClone[i])));
+        }
+        System.out.println(returnCards);
+        return returnCards;
+
     }
+
     public String toString() {
         return "Number of five of a kind hands: " + fiveOfAKind.size() + "\n" +
                 "Number of four of a kind hands: " + fourOfAKind.size() + "\n" +
