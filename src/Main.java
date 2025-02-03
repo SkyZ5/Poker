@@ -38,8 +38,10 @@ public class Main {
         CompareUtility compare = new CompareUtility(cards);
         cards = compare.returnSortedList();
         int totalBid = 0;
-        for(int i = cards.length - 1; i >= 0; i --){
-            totalBid += i * (cards[i].getBidValue());
+        System.out.println(cards.length);
+        System.out.println(Arrays.toString(cards));
+        for(int i = 0; i < cards.length; i ++){
+            totalBid += cards[cards.length - 1 - i].getBidValue() * (i + 1);
         }
         System.out.println(totalBid);
 
