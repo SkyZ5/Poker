@@ -36,13 +36,6 @@ public class Main {
             int bidValue = Integer.parseInt(temp[1]);
         }
         CompareUtility compare = new CompareUtility(cards);
-        System.out.println(compare.threeOfAKind);
-        compare.compareIndividualValue(compare.threeOfAKind);
-
-        // part 1 answer
-        System.out.println();
-        System.out.println(compare.toString());
-
-
+        System.out.println(Arrays.toString(compare.returnSortedList()));
     }
 }

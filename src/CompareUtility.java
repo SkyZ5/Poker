@@ -5,12 +5,14 @@ public class CompareUtility {
     private ArrayList<Card> fiveOfAKind = new ArrayList<Card>();
     private ArrayList<Card> fourOfAKind = new ArrayList<Card>();
     private ArrayList<Card> fullHouse = new ArrayList<Card>();
-    public ArrayList<Card> threeOfAKind = new ArrayList<Card>();
+    private ArrayList<Card> threeOfAKind = new ArrayList<Card>();
     private ArrayList<Card> twoPair = new ArrayList<Card>();
     private ArrayList<Card> onePair = new ArrayList<Card>();
     private ArrayList<Card> highestCard = new ArrayList<Card>();
+    private Card[] cards;
 
     public CompareUtility(Card[] cards){
+        this.cards = cards;
         for(int i = 0; i < cards.length; i ++){
             if(cards[i].getHighestHand().equals("5KIND")){
                 fiveOfAKind.add(cards[i]);
@@ -35,6 +37,28 @@ public class CompareUtility {
             }
         }
     }
+    public Card[] returnSortedList(){
+        ArrayList<Card> returnCards = new ArrayList<Card>();
+        ArrayList<Card> temp = compareIndividualValue(fiveOfAKind);
+        returnCards.addAll(temp);
+        temp = compareIndividualValue(fourOfAKind);
+        returnCards.addAll(temp);
+        temp = compareIndividualValue(fullHouse);
+        returnCards.addAll(temp);
+        temp = compareIndividualValue(threeOfAKind);
+        returnCards.addAll(temp);
+        temp = compareIndividualValue(twoPair);
+        returnCards.addAll(temp);
+        temp = compareIndividualValue(onePair);
+        returnCards.addAll(temp);
+        temp = compareIndividualValue(highestCard);
+        returnCards.addAll(temp);
+        Card[] returnArray = new Card[returnCards.size()];
+        for(int i = 0; i < returnArray.length; i ++){
+            returnArray[i] = returnCards.get(i);
+        }
+        return returnArray;
+    }
 
     public ArrayList<Card> compareIndividualValue(ArrayList<Card> cards){ // change this
         ArrayList<Card> returnCards = new ArrayList<Card>();
@@ -55,7 +79,6 @@ public class CompareUtility {
         for(int i = cards.size() - 1; i >= 0; i --){
             returnCards.add(cards.get(tempCloneTwo.indexOf(tempClone[i])));
         }
-        System.out.println(returnCards);
         return returnCards;
 
     }
