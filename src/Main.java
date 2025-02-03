@@ -32,10 +32,16 @@ public class Main {
             String input = fileArray[i];
             String[] temp = input.split("\\|");
             String[] card = temp[0].split(",");
-            cards[i] = new Card(card);
             int bidValue = Integer.parseInt(temp[1]);
+            cards[i] = new Card(card, bidValue);
         }
         CompareUtility compare = new CompareUtility(cards);
-        System.out.println(Arrays.toString(compare.returnSortedList()));
+        cards = compare.returnSortedList();
+        int totalBid = 0;
+        for(int i = cards.length - 1; i >= 0; i --){
+            totalBid += i * (cards[i].getBidValue());
+        }
+        System.out.println(totalBid);
+
     }
 }
