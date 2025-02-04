@@ -90,7 +90,6 @@ public class CompareUtility {
                 "Number of three of a kind hands: " + threeOfAKind.size() + "\n" +
                 "Number of two pair hands: " + twoPair.size() + "\n" +
                 "Number of one pair hands: " + onePair.size() + "\n" +
-                "Number of high card hands: " + highestCard.size() + "\n" +
-                "Total Bid Value: NOT SET";
+                "Number of high card hands: " + highestCard.size() + "\n";
     }
 }

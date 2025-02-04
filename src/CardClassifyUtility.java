@@ -7,6 +7,7 @@ public class CardClassifyUtility {
     // 12,11,10,9,8,7,6,5,4,3,2,1,0
     private int[] labelAmounts; // example: [0, 1, 3, 1, 0, 0, 0...]
     private int[] hand;
+    private String type;
 
     public CardClassifyUtility(int[] hand) {
         this.hand = hand;
@@ -14,6 +15,7 @@ public class CardClassifyUtility {
         for (int i = 0; i < labelAmounts.length; i++) {
             labelAmounts[i] = 0;
         }
+        addLabelAmounts();
     }
     private void addLabelAmounts() {
         for(int i = 0; i < hand.length; i++){
@@ -21,32 +23,55 @@ public class CardClassifyUtility {
         }
     }
     public String classify(){
-        addLabelAmounts();
         ArrayList<Integer> labelsCopy = new ArrayList<>();
         for (int i = 0; i < labelAmounts.length; i ++) {
             labelsCopy.add(labelAmounts[i]);
         }
         if (labelsCopy.contains(5)) {
-            return "5KIND";
+            type =  "5KIND";
         }
         else if (labelsCopy.contains(4)) {
-            return "4KIND";
+            type =  "4KIND";
         }
         else if (labelsCopy.contains(3) && labelsCopy.contains(2)) {
-            return "FULLHOUSE";
+            type =  "FULLHOUSE";
         }
         else if (labelsCopy.contains(3)) {
-            return "3KIND";
+            type =  "3KIND";
         }
         else if (Collections.frequency(labelsCopy, 2) == 2) { // if 2 appears 2
-            return "2PAIR";
+            type =  "2PAIR";
         }
         else if (labelsCopy.contains(2))
-            return "1PAIR";
-        return "HIGHCARD";
+            type =  "1PAIR";
+        else {
+            type =  "HIGHCARD";
+        }
+        return type;
     }
     public int[] giveHand(){
         return hand;
+    }
+    public int getMostFrequent() {
+        int largest = 0;
+        for (int i = 0; i < labelAmounts.length; i++) {
+            if (labelAmounts[i] > largest && i != 9) {
+                largest = labelAmounts[i];
+            }
+        }
+        return largest;
+    }
+    public void wildJacks() {
+        System.out.println(Arrays.toString(labelAmounts));
+        boolean cardChanged = false;
+        for (int i = labelAmounts.length - 1; i >= 0; i--) {
+            if (i != 9 && labelAmounts[i] == getMostFrequent() && !cardChanged) {
+                labelAmounts[i] += labelAmounts[9]; // + number of jacks
+                cardChanged = true;
+            }
+        }
+        System.out.println(Arrays.toString(labelAmounts));
+        System.out.println();
     }
 
 }

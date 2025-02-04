@@ -28,4 +28,8 @@ public class Card {
     public int getBidValue() {
         return bidValue;
     }
+
+    public void makeJackWild() {
+
+    }
 }
