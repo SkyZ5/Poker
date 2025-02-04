@@ -62,7 +62,6 @@ public class CardClassifyUtility {
         return largest;
     }
     public void wildJacks() {
-        System.out.println(Arrays.toString(labelAmounts));
         boolean cardChanged = false;
         for (int i = labelAmounts.length - 1; i >= 0; i--) {
             if (i != 9 && labelAmounts[i] == getMostFrequent() && !cardChanged) {
@@ -70,8 +69,5 @@ public class CardClassifyUtility {
                 cardChanged = true;
             }
         }
-        System.out.println(Arrays.toString(labelAmounts));
-        System.out.println();
     }
-
 }

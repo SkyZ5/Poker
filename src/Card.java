@@ -4,12 +4,13 @@ public class Card {
     private int[] hand;
     private String highestHand;
     private int bidValue;
+    private CardClassifyUtility cardClassifyUtility = null;
 
     public Card(String[] hand, int bidValue){
         this.bidValue = bidValue;
         TranslationUtility trans = new TranslationUtility();
         this.hand = trans.toNumbers(hand);
-        CardClassifyUtility cardClassifyUtility = new CardClassifyUtility(this.hand);
+        cardClassifyUtility = new CardClassifyUtility(this.hand);
         highestHand = cardClassifyUtility.classify();
     }
 
@@ -30,6 +31,11 @@ public class Card {
     }
 
     public void makeJackWild() {
-
+        cardClassifyUtility.wildJacks();
+        for(int i = 0; i < 5; i ++){
+            if(hand[i] == 11){
+                hand[i] = 1;
+            }
+        }
     }
 }
