@@ -24,6 +24,11 @@ public class Main {
         int totalBid = calculateBidValue(cards);
         System.out.println("Total Bid Value: " + totalBid);
 
+        for (int i = 0; i < cards.length; i++) {
+            cards[i].makeJackWild();
+            System.out.println(cards[i].toString());
+        }
+
 
     }
 

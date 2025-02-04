@@ -49,7 +49,7 @@ public class CardClassifyUtility {
         }
         return type;
     }
-    public int[] giveHand(){
+    public int[] getHand(){
         return hand;
     }
     public int getMostFrequent() {
