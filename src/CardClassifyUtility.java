@@ -49,9 +49,6 @@ public class CardClassifyUtility {
         }
         return type;
     }
-    public int[] getHand(){
-        return hand;
-    }
     public int getMostFrequent() {
         int largest = 0;
         for (int i = 0; i < labelAmounts.length; i++) {
@@ -66,6 +63,7 @@ public class CardClassifyUtility {
         for (int i = labelAmounts.length - 1; i >= 0; i--) {
             if (i != 9 && labelAmounts[i] == getMostFrequent() && !cardChanged) {
                 labelAmounts[i] += labelAmounts[9]; // + number of jacks
+                labelAmounts[9] = 0;
                 cardChanged = true;
             }
         }

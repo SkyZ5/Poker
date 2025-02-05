@@ -19,17 +19,22 @@ public class Main {
         }
         CompareUtility compare = new CompareUtility(cards);
         cards = compare.returnSortedList();
-        System.out.println(compare.toString());
+        System.out.println(compare);
 
         int totalBid = calculateBidValue(cards);
         System.out.println("Total Bid Value: " + totalBid);
 
+
         for (int i = 0; i < cards.length; i++) {
             cards[i].makeJackWild();
-            System.out.println(cards[i].toString());
         }
+        compare = new CompareUtility(cards);
         cards = compare.returnSortedList();
         totalBid = calculateBidValue(cards);
+
+//        for (int i = 0; i < cards.length; i++) {
+//            System.out.println(cards[i].toString());
+//        }
         System.out.println("Total Bid Value With Jacks Wild: " + totalBid);
 
     }
