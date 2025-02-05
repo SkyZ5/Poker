@@ -32,9 +32,6 @@ public class Main {
         cards = compare.returnSortedList();
         totalBid = calculateBidValue(cards);
 
-//        for (int i = 0; i < cards.length; i++) {
-//            System.out.println(cards[i].toString());
-//        }
         System.out.println("Total Bid Value With Jacks Wild: " + totalBid);
 
     }
