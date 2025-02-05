@@ -32,6 +32,7 @@ public class Card {
 
     public void makeJackWild() {
         cardClassifyUtility.wildJacks();
+        highestHand = cardClassifyUtility.classify();
         for(int i = 0; i < 5; i ++){
             if(hand[i] == 11){
                 hand[i] = 1;

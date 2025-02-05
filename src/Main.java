@@ -28,7 +28,9 @@ public class Main {
             cards[i].makeJackWild();
             System.out.println(cards[i].toString());
         }
-
+        cards = compare.returnSortedList();
+        totalBid = calculateBidValue(cards);
+        System.out.println("Total Bid Value With Jacks Wild: " + totalBid);
 
     }
 
